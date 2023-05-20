@@ -3,8 +3,8 @@ import volume from 'xgplayer/dist/controls/volume';
 import playbackRate from 'xgplayer/dist/controls/playbackRate';
 
 let player = new Player({
-  id: 'vs',
-  url: 'XXX.mp4',
+  id: 'player',
+  url: '/videos/test.mp4',
   controlPlugins: [
     volume,
     playbackRate
