@@ -23,7 +23,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/:id/live', (req, res) => {
-  res.render('live', { title: `test的直播间` })
+  res.render('live', { title: `${req.params["id"]}的直播间` })
 })
 
 // catch 404 and forward to error handler
