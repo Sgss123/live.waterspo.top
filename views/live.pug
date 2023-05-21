@@ -1,20 +1,38 @@
 extends layout
 
 block content
+    script.
+        window.addEventListener('resize',function(){document.getElementById('player').style.height=document.body.clientHeight+'px';});  
     #player
     link(rel="stylesheet", href="/stylesheets/player.css")
-    link(rel="stylesheet", href="/npm/xgplayer@3.0.2/dist/index.min.css")
+    //- link(rel="stylesheet", href="/npm/xgplayer@3.0.2/dist/index.min.css")
     <script src="//unpkg.byted-static.com/xgplayer/2.31.2/browser/index.js" charset="utf-8"></script>
     <script src="//unpkg.byted-static.com/xgplayer-flv/2.5.1/dist/index.min.js" charset="utf-8"></script>
     script(type='text/javascript').
         let player = new FlvPlayer({
-          id: 'player',
-          url: '//rmtp.xiaolizi.fun/live/#{user}.flv',
-          isLive: true,
-          playsinline: true,
-        //-   height: window.innerHeight,
-        //-   width: window.innerWidth
+            id: 'player',
+            url: '//connect.waterspo.top:3002/live/#{user}.flv',
+            isLive: true,
+            playsinline: true,
+            //-   fluid: true,
+            width: window.innerWidth/1.2,
+            height:document.body.clientHeight,
+            videoInit: true,
+            autoplay: true
         });
-        player.emit('resourceReady', [{ name: '超清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }, { name: '高清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }, { name: '标清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }]);
+        //- player.emit('resourceReady', [{ name: '超清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }, { name: '高清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }, { name: '标清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }]);
+    //- <script src="https://cdn.bootcss.com/flv.js/1.5.0/flv.min.js"></script>
+    //- video#videoElement
+    //- script.
+    //-     if (flvjs.isSupported()) {
+    //-         var videoElement = document.getElementById('videoElement');
+    //-         var flvPlayer = flvjs.createPlayer({
+    //-             type: 'flv',
+    //-             url: 'http://connect.waterspo.top:3002/live/#{user}.flv'
+    //-         });
+    //-         flvPlayer.attachMediaElement(videoElement);
+    //-         flvPlayer.load();
+    //-         flvPlayer.play();
+    //-     }
     
     
