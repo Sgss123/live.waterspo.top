@@ -4,17 +4,17 @@ block content
     #player
     link(rel="stylesheet", href="/stylesheets/player.css")
     link(rel="stylesheet", href="/npm/xgplayer@3.0.2/dist/index.min.css")
-    <script src="/npm/xgplayer@3.0.2/dist/index.min.js" charset="utf-8"></script>
+    <script src="//unpkg.byted-static.com/xgplayer/2.31.2/browser/index.js" charset="utf-8"></script>
+    <script src="//unpkg.byted-static.com/xgplayer-flv/2.5.1/dist/index.min.js" charset="utf-8"></script>
     script(type='text/javascript').
-        let player=new Player({
-        id: 'player',
-        autoplay: false,
-        volume: 0.3,
-        url:'/videos/test.mp4',
-        poster: "//lf9-cdn-tos.bytecdntp.com/cdn/expire-1-M/byted-player-videos/1.0.0/poster.jpg",
-        playsinline: true,
-        //- height: window.innerHeight,
-        //- width: window.innerWidth
-      });
+        let player = new FlvPlayer({
+          id: 'player',
+          url: '//rmtp.xiaolizi.fun/live/#{user}.flv',
+          isLive: true,
+          playsinline: true,
+        //-   height: window.innerHeight,
+        //-   width: window.innerWidth
+        });
+        player.emit('resourceReady', [{ name: '超清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }, { name: '高清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }, { name: '标清', url: '//rmtp.xiaolizi.fun/live/#{user}.flv' }]);
     
     
